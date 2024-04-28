@@ -1,0 +1,26 @@
+﻿@model IEnumerable<CrudMenu.Models.Entities.Menu>
+
+@{
+    ViewData["Title"] = "HomeMenu";
+}
+
+<h1>HomeMenu</h1>
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="~/Media/Products/@item.Image" class="card-img-top" style="height: 200px; object-fit: cover;" alt="" />
+                    <div class="card-body">
+                        <h5 class="card-title">@item.MenuName</h5>
+                        <p class="card-text">@Html.Raw(item.ItemDescription)</p>
+                        <p class="card-text">@item.SalePrice.ToString("C2")</p>
+                        <a href="#" class="btn btn-primary">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
